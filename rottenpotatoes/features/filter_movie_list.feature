@@ -35,7 +35,7 @@ Scenario: restrict to movies with 'PG' or 'R' ratings
   And I should see "The Incredibles"
   And I should see "Raiders of the Lost Ark"
   # enter step(s) to ensure that other movies are not visible
-  Then I should not see "Aladdin"
+  And I should not see "Aladdin"
   And I should not see "The Help"
   And I should not see "Chocolat"
   And I should not see "2001: A Space Odyssey"
@@ -43,5 +43,7 @@ Scenario: restrict to movies with 'PG' or 'R' ratings
 
 Scenario: all ratings selected
   # see assignment
+  # check all the checkboxes
   When I check the following ratings: G, PG, PG-13, NC-17, R
+  # then all movies should be in the table
   Then I should see all the movies
