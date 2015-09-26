@@ -17,7 +17,11 @@ end
 Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   #  ensure that that e1 occurs before e2.
   #  page.body is the entire content of the page as a string.
-  fail "Unimplemented"
+
+  # the page source code contains string e1 before string e2
+  page.body.should =~ /#{e1}.*#{e2}/m
+
+  #fail "Unimplemented"
 end
 
 # Make it easier to express checking or unchecking several boxes at once
